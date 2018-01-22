@@ -17,7 +17,8 @@ $ python ./service.py
 ### Requests al servicio con libreria de python requests
 1. Crear usuario:
 ```sh
-$ requests.post('http://127.0.0.1:5000/api/users', json={'email': 'mateobasaldua@gmail.com', 'name': 'Mathew', 'last_name': 'Basaldua', 'address': 'Zabala'})
+$ data = {'email': 'mateobasaldua@gmail.com', 'name': 'Mathew', 'last_name': 'Basaldua', 'address': 'Zabala'}
+$ requests.post('http://127.0.0.1:5000/api/users', json=data)
 ```
 
 2. Por defecto el usuario se crea desaprobado, para aprobarlo:
@@ -27,7 +28,8 @@ $ requests.get('http://127.0.0.1:5000/api/approve_user/mateobasaldua@gmail.com')
 
 3. Modificar un usuario, indicando email:
 ```sh
-$ requests.put('http://127.0.0.1:5000/api/users', json={'email': 'mateobasaldua@gmail.com', 'name': 'Mateo', 'last_name': 'Basa', 'address': 'Zabala 2472'})
+$ data = {'email': 'mateobasaldua@gmail.com', 'name': 'Mateo', 'last_name': 'Basa', 'address': 'Zabala 2472'}
+$ requests.put('http://127.0.0.1:5000/api/users', json=data)
 ```
 
 4. Deshabilitar un usuario indicando email:
@@ -37,7 +39,8 @@ $ requests.get('http://127.0.0.1:5000/api/deactivate_user/mateobasaldua@gmail.co
 
 5. Crear una venta asociada a un usuario:
 ```sh
-$ requests.post('http://127.0.0.1:5000/api/users/save_sale', json={'uuid': '889e068d-b098-4da2-82dd-4c712a0446b6', 'user_email': 'mateobasaldua@gmail.com', 'amount': 123.45, 'date': '2017-10-15 11:35'})
+$ data = {'uuid': '889e068d-b098-4da2-82dd-4c712a0446b6', 'user_email': 'mateobasaldua@gmail.com', 'amount': 123.45, 'date': '2017-10-15 11:35'}
+$ requests.post('http://127.0.0.1:5000/api/users/save_sale', json=data)
 ```
 Nos tira error porque para crear una venta el usuario tiene que estar aprobado. Por lo ejecutamos el paso 2 y despues volvemos a ejecutar este paso.
 La venta se crea por defecto en estado aprobado. La suma de todas las ventas aprobadas se muestra en la descripción del usuario.
