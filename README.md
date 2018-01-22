@@ -9,6 +9,7 @@ La idea es correr este servicio con un container de Docker. Por el momento, la c
 Se deberá instalar mongodb y tenerlo levantado al momento del uso del servicio (service mongod start)
 
 ```sh
+$ git clone https://github.com/mateoBa/user_service.git
 $ cd user_service
 $ pip install -r requirements.txt
 $ python ./service.py
